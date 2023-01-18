@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class RestController {
-    
+
     @RequestMapping("/url")
     public String page(Model model) {
         model.addAttribute("attribute", "value");

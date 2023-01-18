@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.demo.dto.UserDTO;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -48,20 +50,24 @@ public class NewController {
         return json;
     }
     
-        @GetMapping("testing")
+    @GetMapping("testing")
     @ResponseBody
     //  @ResponseStatus(code = HttpStatus.GET)
-    public List testing() {
+    public Map testing() {
         UserDTO user1 = new UserDTO();
-        user1.setName("Nivs");
-        user1.setYear("testing");
+        user1.setName("Nivss");
+        user1.setYear("testingg");
         UserDTO user2 = new UserDTO();
-        user2.setName("Nivs");
-        user2.setYear("testing");
+        user2.setName("Nivsss");
+        user2.setYear("testingggss");
         UserDTO user3 = new UserDTO();
-        user3.setName("Nivs");
-        user3.setYear("testing");
-        
+        user3.setName("Nivssss");
+        user3.setYear("testingsss");
+        Map<String, String> map = new HashMap<String, String>();
+        map.put(user1.getName(), user1.getYear());
+        map.put(user2.getName(), user2.getYear());
+        map.put(user3.getName(), user3.getYear());
+        //Optional
         List<UserDTO> list = new ArrayList<>();
         list.addAll(Arrays.asList(user1, user2, user3));
         //map.put("tests", "testando6541");
@@ -71,6 +77,6 @@ public class NewController {
       //  map.put("testsss", "testando42");
        // String json = map.toString();
         //model.addAttribute("attribute", "value");
-        return list;
+        return map;
     }
-}
+    }
