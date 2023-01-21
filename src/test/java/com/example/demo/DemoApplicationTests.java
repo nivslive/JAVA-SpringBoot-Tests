@@ -1,7 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.controller.NewController;
-import com.example.demo.dto.UserDTO;
+import com.example.demo.entities.User;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Assertions;

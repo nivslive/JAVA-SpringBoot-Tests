@@ -12,7 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.example.demo.dto.UserDTO;
+
+import com.example.demo.entities.Components;
+import com.example.demo.entities.Structure;
+import com.example.demo.entities.User;
+import com.example.demo.interfaces.Component;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
@@ -25,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author nivs
  */
 @Controller
-@RequestMapping( "/")
+@RequestMapping("/")
 public class NewController {
     
     @GetMapping
@@ -54,13 +59,13 @@ public class NewController {
     @ResponseBody
     //  @ResponseStatus(code = HttpStatus.GET)
     public Map testing() {
-        UserDTO user1 = new UserDTO();
+        User user1 = new User();
         user1.setName("Nivss");
         user1.setYear("testingg");
-        UserDTO user2 = new UserDTO();
+        User user2 = new User();
         user2.setName("Nivsss");
         user2.setYear("testingggss");
-        UserDTO user3 = new UserDTO();
+        User user3 = new User();
         user3.setName("Nivssss");
         user3.setYear("testingsss");
         Map<String, String> map = new HashMap<String, String>();
@@ -68,7 +73,7 @@ public class NewController {
         map.put(user2.getName(), user2.getYear());
         map.put(user3.getName(), user3.getYear());
         //Optional
-        List<UserDTO> list = new ArrayList<>();
+        List<User> list = new ArrayList<>();
         list.addAll(Arrays.asList(user1, user2, user3));
         //map.put("tests", "testando6541");
        // map.put("testsss", "testando52");
@@ -79,4 +84,14 @@ public class NewController {
         //model.addAttribute("attribute", "value");
         return map;
     }
+
+
+    @GetMapping("fodase")
+    @ResponseBody 
+    public Components fodase() {
+        Structure structure = new Structure();
+        return structure.setComponents();
     }
+}
+
+
